@@ -50,7 +50,7 @@ function _M.load(config_file)
         if px_config.block_enabled then
             ngx.header["Content-Type"] = 'text/html';
             if px_config.custom_block_url then
-                res = ngx.location.capture(px_config.custom_block_url)
+                local res = ngx.location.capture(px_config.custom_block_url)
                 if res.truncated then 
                     ngx.status(500)
                     ngx_exit(ngx.OK)
