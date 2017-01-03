@@ -63,7 +63,7 @@ function _M.load(config_file)
                     ngx_exit(ngx.OK)
                 end
                 local body = string.gsub(res.body, '</head>', new_captcha_script(vid, uuid) .. '</head>', 1);
-                local body = string.gsub(body, '::BLOCK_REF::', uuid);
+                body = string.gsub(body, '::BLOCK_REF::', uuid);
                 ngx.status = ngx_HTTP_FORBIDDEN;
                 ngx_say(body);
                 ngx_exit(ngx.OK);
